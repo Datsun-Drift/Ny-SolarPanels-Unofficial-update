@@ -19,7 +19,7 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Players;
     using Eco.Gameplay.Property;
     using Eco.Gameplay.Skills;
-	using Eco.Gameplay.Systems;
+    using Eco.Gameplay.Systems;
     using Eco.Gameplay.Systems.TextLinks;
     using Eco.Gameplay.Pipes.LiquidComponents;
     using Eco.Gameplay.Pipes.Gases;
@@ -39,7 +39,7 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Systems.NewTooltip;
     using Eco.Core.Controller;
     using Eco.Core.Utils;
-	using Eco.Gameplay.Components.Storage;
+    using Eco.Gameplay.Components.Storage;
     using static Eco.Gameplay.Housing.PropertyValues.HomeFurnishingValue;
     using Eco.Gameplay.Items.Recipes;
 
@@ -49,12 +49,12 @@ namespace Eco.Mods.TechTree
     [RequireComponent(typeof(PowerGridComponent))]
     [RequireComponent(typeof(PowerGeneratorComponent))]
     [RequireComponent(typeof(HousingComponent))]
-	[RequireComponent(typeof(ForSaleComponent))]
-
+    [RequireComponent(typeof(ForSaleComponent))]
     [PowerGenerator(typeof(ElectricPower))]
+    
     public partial class NySolarPanelsObject : WorldObject, IRepresentsItem
     {
-		public virtual Type RepresentedItemType => typeof(NySolarPanelsItem);
+	public virtual Type RepresentedItemType => typeof(NySolarPanelsItem);
         public override LocString DisplayName => Localizer.DoStr("Solar Panels");
         public override TableTextureMode TableTexture => TableTextureMode.Metal;
 
@@ -75,9 +75,9 @@ namespace Eco.Mods.TechTree
 
     [Serialized]
     [LocDisplayName("Solar Panels")]
-	[LocDescription("Solar Panels for green energy production.")]
+    [LocDescription("Solar Panels for green energy production.")]
     [Ecopedia("Crafted Objects", "Power Generation", createAsSubPage: true)]
-	[Weight(500)] // Defines how heavy WoodenCeilingLight is.
+    [Weight(500)] // Defines how heavy WoodenCeilingLight is.
     public partial class NySolarPanelsItem : WorldObjectItem<NySolarPanelsObject>
     {
         public override HomeFurnishingValue HomeValue => homeValue;
@@ -87,7 +87,7 @@ namespace Eco.Mods.TechTree
             TypeForRoomLimit         = Localizer.DoStr(""),
         };
 
-		[NewTooltip(CacheAs.SubType, 7)] public static LocString PowerConsumptionTooltip() => Localizer.Do($"Produces: {Text.Info(200)}w of {new ElectricPower().Name} power.");
+	[NewTooltip(CacheAs.SubType, 7)] public static LocString PowerConsumptionTooltip() => Localizer.Do($"Produces: {Text.Info(200)}w of {new ElectricPower().Name} power.");
     }
 
     [RequiresSkill(typeof(ElectronicsSkill), 1)]
